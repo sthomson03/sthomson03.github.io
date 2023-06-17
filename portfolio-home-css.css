@@ -1,0 +1,212 @@
+/* add font to whole webpage, add smooth scrolling when selecting section of webpage */
+html {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    scroll-behavior: smooth;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+/* add light grey background colour, make sections take up whole page */
+body {
+    position: relative;
+    background-color: #E2E5DE;
+}
+
+h2 {
+    text-align: center;
+}
+
+/* add style to 'sam thomson' logo */
+.logo {
+    background-color: #8C8C8C;
+    overflow: hidden;
+    display: flex;
+    position: fixed;
+    left: 0;
+    right: auto;
+    border-radius: 25px;
+    text-align: center;
+    color: #E2E5DE;
+    font-size: 17px;
+    padding-left: 1%;
+    padding-right: 1%;
+    border: 2px solid #ffffff40;
+    margin-left: 5%;
+    margin-right: auto;
+    backdrop-filter: blur(15px);
+}
+
+/* add style to navbar */
+.navbar {
+    background-color: #8C8C8C;
+    overflow: hidden;
+    display: flex;
+    position: fixed;
+    left: auto;
+    right: 0;
+    margin-left: auto;
+    margin-right: 5%;
+    padding-left: 1%;
+    padding-right: 1%;
+    border-radius: 25px;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid #ffffff40;
+    backdrop-filter: blur(15px);
+}
+  
+.navbar a {
+    color: #E2E5DE;
+    text-align: center;
+    padding: 3% 5%;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.navbar a:hover {
+    color: black;
+}
+
+.about-container {
+    box-shadow: 0 18px 200px -60px black;
+    border-radius: 25px;
+    position: relative;
+    border: 2px solid #ffffff40;
+    padding: 3rem 5rem;
+    text-align: right;
+    margin-left: auto;
+    margin-right: 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* center all sections on webpage */
+.section {
+    height: calc(100vh - 70px); /* Subtract the height of the navbar */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 3%;
+}
+
+.projects {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5%;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.project {
+    display: flex;
+    justify-content: center;
+}
+
+.project-preview-button {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: #8C8C8C;
+    overflow: hidden;
+    justify-content: flex-end;
+    display: flex;
+    border-radius: 25px;
+    text-align: center;
+    color: #E2E5DE;
+    padding: 1%;
+    border: 2px solid #ffffff40;
+    cursor: pointer;
+}
+
+.project-code-button {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: #8C8C8C;
+    overflow: hidden;
+    justify-content: flex-end;
+    display: flex;
+    border-radius: 25px;
+    text-align: center;
+    color: #E2E5DE;
+    padding: 1%;
+    border: 2px solid #ffffff40;
+    cursor: pointer;
+}
+
+.project-container {
+    box-shadow: 0 18px 200px -60px black;
+    border-radius: 25px;
+    width: 100%;
+    position: relative;
+    backdrop-filter: blur(15px);
+    border: 2px solid #ffffff40;
+    padding: 3rem 5rem;
+}
+
+.button-container {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 10px;
+    justify-content: center;
+}
+
+.contact-container {
+    box-shadow: 0 18px 200px -60px black;
+    border-radius: 25px;
+    width: 100%;
+    height: 60%;
+    position: relative;
+    backdrop-filter: blur(15px);
+    border: 2px solid #ffffff40;
+    padding: 3rem 5rem;
+}
+
+.submit-button {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: #8C8C8C;
+    overflow: hidden;
+    justify-content: flex-end;
+    display: flex;
+    border-radius: 25px;
+    text-align: center;
+    color: #E2E5DE;
+    padding: 1%;
+    border: 2px solid #ffffff40;
+    cursor: pointer;
+}
+
+.submit-button:hover {
+    background-color: #FDFDFD;
+    color: black;
+}
+
+/* Style inputs with type="text", select elements and textareas */
+input[type=text], select, textarea {
+    width: 100%; /* Full width */
+    padding: 12px; /* Some padding */ 
+    border: 1px solid #ccc; /* Gray border */
+    border-radius: 4px; /* Rounded borders */
+    box-sizing: border-box; /* Make sure that padding and width stays in place */
+    margin-top: 6px; /* Add a top margin */
+    margin-bottom: 16px; /* Bottom margin */
+    resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+  }
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.footer-text {
+    text-align: center;
+}
+
+.links {
+    text-align: center;
+}
