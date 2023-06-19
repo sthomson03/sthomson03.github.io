@@ -1,3 +1,8 @@
+@viewport {
+    width: device-width ;
+    zoom: 1.0 ;
+}
+
 /* add font to whole webpage, add smooth scrolling when selecting section of webpage */
 html {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -10,35 +15,84 @@ html {
 body {
     position: relative;
     background-color: #E2E5DE;
+    transition: background-color 0.75s ease;
+}
+
+.dark-mode {
+    background-color: black;
+}
+
+/* Add transition to color and background-color properties */
+.logo,
+.navbar,
+.navbar a,
+.projects,
+.about-container,
+.project-container,
+.contact-container,
+.footer,
+.footer-text,
+.links {
+    transition: color 0.75s ease, background-color 0.75s ease;
+}
+
+.dark-mode .footer-text,
+.dark-mode .links,
+.dark-mode .logo,
+.dark-mode .navbar a,
+.dark-mode .projects,
+.dark-mode .about-container,
+.dark-mode .project-container,
+.dark-mode .contact-container {
+    color: white;
+    background-color: inherit;
+}
+
+.dark-mode-button {
+    white-space: nowrap;
+}
+
+body:not(.dark-mode) .navbar .dark-mode-button {
+    color: #ff6961;
+}
+
+body.dark-mode .navbar .dark-mode-button {
+    color: #77DD77;
+}
+
+.social-image {
+    filter: none;
+    width: 2%;
+}
+  
+.dark-mode .social-image {
+    filter: invert(100%);
 }
 
 h2 {
     text-align: center;
+    padding: 0 auto;
 }
 
 /* add style to 'sam thomson' logo */
 .logo {
-    background-color: #8C8C8C;
-    overflow: hidden;
-    display: flex;
+    background-color: #E2E5DE;
     position: fixed;
     left: 0;
     right: auto;
     border-radius: 25px;
     text-align: center;
-    color: #E2E5DE;
+    color: black;
     font-size: 17px;
     padding-left: 1%;
     padding-right: 1%;
     border: 2px solid #ffffff40;
     margin-left: 5%;
     margin-right: auto;
-    backdrop-filter: blur(15px);
 }
 
 /* add style to navbar */
 .navbar {
-    background-color: #8C8C8C;
     overflow: hidden;
     display: flex;
     position: fixed;
@@ -53,18 +107,25 @@ h2 {
     align-items: center;
     border: 2px solid #ffffff40;
     backdrop-filter: blur(15px);
+    transition: background-color 0.75s ease;
+}
+
+.navbar h3 {
+    margin-right: 10px;
 }
   
 .navbar a {
-    color: #E2E5DE;
+    color: black;
     text-align: center;
-    padding: 3% 5%;
+    padding: 3% 2%;
     text-decoration: none;
     font-size: 17px;
+    transition: color 0.75s ease;
+    
 }
 
 .navbar a:hover {
-    color: black;
+    color: white;
 }
 
 .about-container {
@@ -74,51 +135,32 @@ h2 {
     border: 2px solid #ffffff40;
     padding: 3rem 5rem;
     text-align: right;
-    margin-left: auto;
-    margin-right: 0;
     display: flex;
-    justify-content: flex-end;
+    align-items: center;
+    background-color: #E2E5DE;
 }
 
-/* center all sections on webpage */
 .section {
-    height: calc(100vh - 70px); /* Subtract the height of the navbar */
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 3%;
 }
 
 .projects {
     display: grid;
-    width: 100%;
     grid-template-columns: repeat(3, 1fr);
     gap: 5%;
-    margin-left: 0;
-    margin-right: 0;
+    width: 100%;
+    height: calc(100vh - 65vh);
+    padding-bottom: 25%;
 }
 
 .project {
-    display: flex;
-    justify-content: center;
+    height: calc(100vh - 65vh);
 }
 
-.project-preview-button {
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    background-color: #8C8C8C;
-    overflow: hidden;
-    justify-content: flex-end;
-    display: flex;
-    border-radius: 25px;
-    text-align: center;
-    color: #E2E5DE;
-    padding: 1%;
-    border: 2px solid #ffffff40;
-    cursor: pointer;
-}
-
+.project-preview-button,
 .project-code-button {
     appearance: none;
     -webkit-appearance: none;
@@ -133,34 +175,14 @@ h2 {
     padding: 1%;
     border: 2px solid #ffffff40;
     cursor: pointer;
+    padding: 0.5rem 1rem;
+    font-weight: bold;
 }
 
-.project-container {
-    box-shadow: 0 18px 200px -60px black;
-    border-radius: 25px;
-    width: 100%;
-    position: relative;
-    backdrop-filter: blur(15px);
-    border: 2px solid #ffffff40;
-    padding: 3rem 5rem;
-}
-
-.button-container {
-    display: grid;
-    grid-template-columns: repeat(2, auto);
-    gap: 10px;
-    justify-content: center;
-}
-
-.contact-container {
-    box-shadow: 0 18px 200px -60px black;
-    border-radius: 25px;
-    width: 100%;
-    height: 60%;
-    position: relative;
-    backdrop-filter: blur(15px);
-    border: 2px solid #ffffff40;
-    padding: 3rem 5rem;
+.project-preview-button:hover,
+.project-code-button:hover {
+    background-color: #FDFDFD;
+    color: black;
 }
 
 .submit-button {
@@ -177,6 +199,91 @@ h2 {
     padding: 1%;
     border: 2px solid #ffffff40;
     cursor: pointer;
+    font-weight: bold;
+}
+
+.project-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    box-shadow: 0 18px 200px -60px black;
+    border-radius: 25px;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(15px);
+    border: 2px solid #ffffff40;
+    background-color: #E2E5DE;
+    color: black;
+}
+
+.project-image {
+    display: flex;
+    width: 100%;
+    height: 60%;
+    justify-content: center;
+    padding-bottom: 5%;
+}
+
+.project-image img {
+    cursor: pointer;
+}
+
+.project-image:hover .overlay {
+    opacity: 1;
+}
+
+.project-image:hover .text {
+    opacity: 0.7;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #8C8C8C;
+    border-radius: 25px;
+}
+  
+.overlay-text {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    opacity: 1;
+    transition: .5s ease;
+}
+
+.contact-container {
+    box-shadow: 0 18px 200px -60px black;
+    border-radius: 25px;
+    width: 100%;
+    position: relative;
+    backdrop-filter: blur(15px);
+    border: 2px solid #ffffff40;
+    padding: 5%;
+}
+
+.contact-container label {
+    font-weight: bold;
+}
+
+.button-container {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 10px;
+    justify-content: center;
+    padding-bottom: 5%;
 }
 
 .submit-button:hover {
@@ -186,14 +293,14 @@ h2 {
 
 /* Style inputs with type="text", select elements and textareas */
 input[type=text], select, textarea {
-    width: 100%; /* Full width */
-    padding: 12px; /* Some padding */ 
-    border: 1px solid #ccc; /* Gray border */
-    border-radius: 4px; /* Rounded borders */
-    box-sizing: border-box; /* Make sure that padding and width stays in place */
-    margin-top: 6px; /* Add a top margin */
-    margin-bottom: 16px; /* Bottom margin */
-    resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
   }
 
 footer {
@@ -209,4 +316,89 @@ footer {
 
 .links {
     text-align: center;
+    padding-bottom: 1%;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+    /* Adjustments for screens up to 768px width */
+    .logo {
+        display: none;
+    }
+
+    .navbar {
+        position: fixed;
+        margin-left: 5%;
+        margin-right: 5%;
+        left: 0;
+        right: 0;
+        padding-left: 0.25rem;
+        padding-right: 0.25rem;
+    }
+  
+    .section {
+        height: 100vh;
+        flex-direction: column;
+    }
+
+    .section #projects {
+        height: 150vh;
+    }
+
+    .projects {
+        padding-top: 0;
+        padding-bottom: 0;
+        grid-template-columns: repeat(1, 1fr);
+        height: calc(100vh - 20vh);
+        display: block;
+        overflow-y: scroll;
+        white-space: nowrap;
+    }
+
+    .project {
+        height: calc(100vh - 70vh);
+        margin-bottom: 2rem;
+    }
+
+    .project-container {
+        background-color: #E2E5DE;
+    }
+
+    .contact-container {
+        width: auto;
+    }
+
+    .social-image {
+        width: 4%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    /* Adjustments for screens up to 480px width */
+    body {
+        margin-left: 2%;
+        margin-right: 2%;
+        padding-left: 0.25rem; 
+        padding-right: 0.25rem;
+    }
+
+    .logo {
+        display: none;
+    }
+  
+    .about-container,
+    .project-container,
+    .contact-container {
+        padding: 1rem;
+    }
+
+    .project-container {
+        box-shadow: none;
+    }
+  
+    .projects {
+        padding-top: 0;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 5%;
+    }
 }
