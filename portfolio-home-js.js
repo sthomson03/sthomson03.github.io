@@ -1,5 +1,5 @@
-function darkModeButton(event) {
-    event.preventDefault(); // Prevent the default scroll behavior
+function toggleDarkMode(event) {
+    event.preventDefault();
     var element = document.body;
     element.classList.toggle("dark-mode");
 
@@ -7,6 +7,8 @@ function darkModeButton(event) {
     darkModeButton.classList.toggle("active");
 }
 
-var darkModeButton = document.querySelector(".dark-mode-button");
-darkModeButton.addEventListener("click", darkModeButton);
-darkModeButton.addEventListener("touchstart", darkModeButton);
+document.addEventListener("DOMContentLoaded", function() {
+    var darkModeButton = document.querySelector(".dark-mode-button");
+    darkModeButton.addEventListener("click", toggleDarkMode);
+    darkModeButton.addEventListener("touchstart", toggleDarkMode);
+});
