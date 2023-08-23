@@ -7,14 +7,6 @@ function darkModeButton(event) {
     darkModeButton.classList.toggle("active");
 }
 
-// Smooth scrolling for touchscreen devices
-if ("ontouchstart" in document.documentElement) {
-    const links = document.querySelectorAll(".navbar a");
-    links.forEach((link) => {
-      link.addEventListener("click", (event) => {
-        event.preventDefault();
-        const target = document.querySelector(link.getAttribute("href"));
-        target.scrollIntoView({ behavior: "smooth" });
-      });
-    });
-  }
+var darkModeButton = document.querySelector(".dark-mode-button");
+darkModeButton.addEventListener("click", darkModeButton);
+darkModeButton.addEventListener("touchstart", darkModeButton);
