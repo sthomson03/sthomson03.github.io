@@ -12,15 +12,17 @@
 html {
     font-family: "GothamBold", sans-serif;
     scroll-behavior: smooth;
-    margin-left: 5%;
-    margin-right: 5%;
 }
 
 /* add light grey background colour, make sections take up whole page */
 body {
-    position: relative;
+
     background-color: #E2E5DE;
     transition: background-color 0.75s ease;
+    display: flex;
+    flex-direction: column;
+    margin-left: 5%;
+    margin-right: 5%;
 }
 
 a {
@@ -153,11 +155,7 @@ h2 {
 }
 
 .about-container h1 {
-    white-space: nowrap;
-}
-
-.about-description {
-    padding-left: 25%;
+    text-align: right;
 }
 
 .section {
@@ -255,7 +253,10 @@ h2 {
     position: relative;
     backdrop-filter: blur(15px);
     border: 2px solid #ffffff40;
-    padding: 5%;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 2%;
+    padding-bottom: 2%;
 }
 
 .contact-container label {
@@ -369,11 +370,19 @@ footer {
     .logo {
         display: none;
     }
-  
-    .about-container,
-    .project-container,
-    .contact-container {
-        padding: 1rem;
+
+    .navbar {
+        position: fixed;
+        margin-left: 5%;
+        margin-right: 5%;
+        left: 0;
+        right: 0;
+        padding-left: 0.25rem;
+        padding-right: 0.25rem;
+    }
+
+    .about-description {
+        position: relative;
     }
 
     .project-container {
@@ -384,5 +393,22 @@ footer {
         padding-top: 0;
         grid-template-columns: repeat(1, 1fr);
         gap: 5%;
+    }
+
+    footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: -1; /* Move the footer behind other elements */
+    }
+    
+    .footer-text {
+        text-align: center;
+    }
+    
+    .links {
+        text-align: center;
+        padding-bottom: 1%;
     }
 }
