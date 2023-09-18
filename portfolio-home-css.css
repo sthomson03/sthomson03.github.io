@@ -205,6 +205,29 @@ h2 {
     color: black;
 }
 
+.project-navigation {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.prev-project,
+.next-project {
+    background-color: #8C8C8C;
+    border: 2px solid #ffffff40;
+    border-radius: 25px;
+    color: #E2E5DE;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    margin: 0 1rem;
+}
+
+.prev-project:hover,
+.next-project:hover {
+    background-color: #FDFDFD;
+    color: black;
+}
+
 .submit-button {
     appearance: none;
     -webkit-appearance: none;
@@ -236,6 +259,14 @@ h2 {
     border: 2px solid #ffffff40;
     background-color: #E2E5DE;
     color: black;
+}
+
+#projects-desktop {
+    display: block;
+}
+
+#projects-mobile {
+    display: none;
 }
 
 .project-image {
@@ -330,16 +361,6 @@ footer {
         height: 150vh;
     }
 
-    .projects {
-        padding-top: 0;
-        padding-bottom: 0;
-        grid-template-columns: repeat(1, 1fr);
-        height: calc(100vh - 20vh);
-        display: block;
-        overflow-y: scroll;
-        white-space: nowrap;
-    }
-
     .project {
         height: calc(100vh - 70vh);
         margin-bottom: 2rem;
@@ -385,22 +406,44 @@ footer {
         position: relative;
     }
 
-    .project-container {
-        box-shadow: none;
+    #projects-desktop {
+        display: none;
     }
-  
-    .projects {
-        padding-top: 0;
-        grid-template-columns: repeat(1, 1fr);
-        gap: 5%;
+
+    .project:not(:first-child) {
+        display: none; /* Hide all projects except the first one initially */
+    }
+
+    #projects-mobile {
+        display: block;
+    }
+
+    .project-navigation {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .prev-project,
+    .next-project {
+        background-color: #8C8C8C;
+        border: 2px solid #ffffff40;
+        border-radius: 25px;
+        color: #E2E5DE;
+        cursor: pointer;
+        padding: 0.5rem 1rem;
+        font-weight: bold;
+    }
+
+    .prev-project:hover,
+    .next-project:hover {
+        background-color: #FDFDFD;
+        color: black;
     }
 
     footer {
         position: fixed;
-        bottom: 0;
         left: 0;
         right: 0;
-        z-index: -1; /* Move the footer behind other elements */
     }
     
     .footer-text {
@@ -409,6 +452,6 @@ footer {
     
     .links {
         text-align: center;
-        padding-bottom: 1%;
+        padding-bottom: 5%;
     }
 }
