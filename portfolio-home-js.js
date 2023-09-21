@@ -15,6 +15,26 @@ document.addEventListener("DOMContentLoaded", function() {
     var projectsMobile = document.querySelectorAll(".projects-mobile-container .project");
     var currentIndex = 0;
 
+    // Function to scroll to the projects section
+    function scrollToProjects() {
+        var isMobile = window.innerWidth <= 480;
+        
+        // Determine the target section based on device
+        var targetSectionId = isMobile ? "projects-mobile" : "projects-desktop";
+        
+        // Scroll to the target section smoothly
+        var targetSection = document.getElementById(targetSectionId);
+        targetSection.scrollIntoView({ behavior: "smooth" });
+    }
+
+    // Add an event listener to the "Projects" link in the navbar
+    var projectsLink = document.querySelector(".navbar a[href='#projects-desktop']");
+    projectsLink.addEventListener("click", function(event) {
+        event.preventDefault(); // Prevent the default link behavior
+        scrollToProjects();
+    });
+
+
     function showProject(index) {
         projectsMobile.forEach(function(project, i) {
             if (i === index) {

@@ -3,23 +3,16 @@
     zoom: 1.0;
 }
 
-@font-face {
-    font-family: "GothamBold";
-    src: url(/fonts/GothamBold.ttf);
-}
-
 /* add font to whole webpage, add smooth scrolling when selecting section of webpage */
 html {
-    font-family: "GothamBold", sans-serif;
+    font-family: sans-serif;
     scroll-behavior: smooth;
 }
 
 /* add light grey background colour, make sections take up whole page */
 body {
-
     background-color: #E2E5DE;
     transition: background-color 0.75s ease;
-    display: flex;
     flex-direction: column;
     margin-left: 5%;
     margin-right: 5%;
@@ -63,6 +56,10 @@ a {
     white-space: nowrap;
 }
 
+.dark-mode .navbar a:hover {
+    color: grey;
+}
+
 body:not(.dark-mode) .navbar .dark-mode-button {
     color: #ff6961;
 }
@@ -78,15 +75,6 @@ body.dark-mode .navbar .dark-mode-button {
   
 .dark-mode .social-image {
     filter: invert(100%);
-}
-
-h1 {
-    text-align: left;
-}
-
-h2 {
-    text-align: center;
-    padding: 0 auto;
 }
 
 /* add style to 'sam thomson' logo */
@@ -126,20 +114,18 @@ h2 {
 }
 
 .navbar h3 {
+    margin-left: 10px;
     margin-right: 10px;
 }
   
 .navbar a {
     color: black;
-    text-align: center;
-    padding: 3% 2%;
     text-decoration: none;
     font-size: 17px;
-    transition: color 0.75s ease;
 }
 
 .navbar a:hover {
-    color: white;
+    color: grey;
 }
 
 .about-container {
@@ -170,12 +156,12 @@ h2 {
     grid-template-columns: repeat(3, 1fr);
     gap: 5%;
     width: 100%;
-    height: calc(100vh - 65vh);
-    padding-bottom: 25%;
+    padding-top: 7.5%;
 }
 
 .project {
     height: calc(100vh - 65vh);
+    z-index: 1;
 }
 
 .project-desc-button,
@@ -201,29 +187,6 @@ h2 {
 .project-desc-button:hover,
 .project-preview-button:hover,
 .project-code-button:hover {
-    background-color: #FDFDFD;
-    color: black;
-}
-
-.project-navigation {
-    text-align: center;
-    margin-top: 1rem;
-}
-
-.prev-project,
-.next-project {
-    background-color: #8C8C8C;
-    border: 2px solid #ffffff40;
-    border-radius: 25px;
-    color: #E2E5DE;
-    cursor: pointer;
-    padding: 0.5rem 1rem;
-    font-weight: bold;
-    margin: 0 1rem;
-}
-
-.prev-project:hover,
-.next-project:hover {
     background-color: #FDFDFD;
     color: black;
 }
@@ -288,6 +251,7 @@ h2 {
     padding-right: 5%;
     padding-top: 2%;
     padding-bottom: 2%;
+    z-index: 1;
 }
 
 .contact-container label {
@@ -323,7 +287,7 @@ footer {
     bottom: 0;
     left: 0;
     right: 0;
-    z-index: -1; /* Move the footer behind other elements */
+    z-index: 0;
 }
 
 .footer-text {
@@ -394,16 +358,12 @@ footer {
 
     .navbar {
         position: fixed;
-        margin-left: 5%;
-        margin-right: 5%;
-        left: 0;
-        right: 0;
         padding-left: 0.25rem;
         padding-right: 0.25rem;
     }
 
-    .about-description {
-        position: relative;
+    .projects-mobile-container {
+        padding-top: 60%;
     }
 
     #projects-desktop {
@@ -421,6 +381,12 @@ footer {
     .project-navigation {
         display: flex;
         justify-content: space-between;
+    }
+    
+    .prev-project:hover,
+    .next-project:hover {
+        background-color: #FDFDFD;
+        color: black;
     }
 
     .prev-project,
@@ -440,18 +406,7 @@ footer {
         color: black;
     }
 
-    footer {
-        position: fixed;
-        left: 0;
-        right: 0;
-    }
-    
-    .footer-text {
-        text-align: center;
-    }
-    
     .links {
-        text-align: center;
-        padding-bottom: 5%;
+        padding-bottom: 10%;
     }
 }
