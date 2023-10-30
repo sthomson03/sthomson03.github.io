@@ -15,6 +15,9 @@ document.addEventListener("DOMContentLoaded", function() {
     var projectsMobile = document.querySelectorAll(".projects-mobile-container .project");
     var currentIndex = 0;
 
+    var submitButton = document.getElementById("submit-button");
+    var contactForm = document.getElementById("contact-form");
+
     // Function to scroll to the projects section
     function scrollToProjects() {
         var isMobile = window.innerWidth <= 480;
@@ -34,6 +37,18 @@ document.addEventListener("DOMContentLoaded", function() {
         scrollToProjects();
     });
 
+    submitButton.addEventListener("click", function() {
+        var formData = new FormData(contactForm);
+        var firstName = formData.get("firstname");
+        var lastName = formData.get("surname");
+        var message = formData.get("subject");
+
+        var mailtoLink = "mailto:sthomson0812@gmail.com"
+            + "?subject=Message%20from%20" + encodeURIComponent(firstName + " " + lastName)
+            + "&body=" + encodeURIComponent(message);
+
+        window.location.href = mailtoLink;
+    });
 
     function showProject(index) {
         projectsMobile.forEach(function(project, i) {
